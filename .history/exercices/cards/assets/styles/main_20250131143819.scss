@@ -1,0 +1,19 @@
+// main
+
+@use "fonts";
+@use "card";
+
+*, *::before, *::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+.cards {
+
+ margin-top: 3em;
+
+ display: flex;
+ flex-wrap: wrap;
+ gap: 1em;
+ justify-content: center;
+}

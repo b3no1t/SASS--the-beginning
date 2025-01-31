@@ -1,0 +1,10 @@
+// main
+
+@use "fonts";
+@use "card";
+
+.cards {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 1em;
+}
