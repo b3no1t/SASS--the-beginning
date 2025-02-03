@@ -21,12 +21,12 @@
  
 }
 .card__button {
- text-decoration: none;
- display: inline-block;
+ text-transform: none;
  color: #fff;
  padding: .7rem 1rem ;
+ border: none;
+ cursor: pointer;
  background-color: hsl(0, 0%, 25%);
- transition:  background-color 250ms ease-in-out;
  
  &:hover {
   background-color: hsl(0, 0%, 65%);
