@@ -1,0 +1,34 @@
+// My First SASS File
+
+
+@use 'partial';
+// Variables
+
+$primary-color: gray;
+$secondary-color: violet;
+$font-stack: Trebuchet MS, sans-serif;
+
+.container {
+ p {
+  font: 20px $font-stack;
+  color: $primary-color;
+  margin-top: auto;
+ }
+} 
+
+nav {
+ ul {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+ }
+
+ li { display: inline-block; }
+
+ a {
+  color: $secondary-color;
+   display: block;
+   padding: 6px 12px;
+   text-decoration: none;
+ }
+}
