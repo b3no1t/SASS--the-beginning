@@ -11,82 +11,104 @@
   *Exemple - ecrire le code CSS suivant en utilisant des regles imbriquees:
 */
 a {
- text-decoration: none;
+  text-decoration: none;
 }
 
-a::hover {
- text-decoration: underline;
+a:hover {
+  text-decoration: underline;
 }
 
 /*
  Solution:
 */
 a {
- text-decoration: none;
- &::hover {
-   text-decoration: underline;
- }
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /*
  A votre tour!
   *Ecrire le code CSS suivant en utilisant un mixin SCSS:
 */
+
+/// Mixin to prefix a property
+@mixin cross-browser($property, $val) {
+  -webkit-#{$property}: $val;
+  -moz-#{$property}: $val;
+  -ms-#{$property}: $val;
+  #{$property}: $val;
+}
+
+/// use: @include cross-browser(border-radius, 0)
+
 .box-square {
+  @include cross-browser(border-radius, 0);
+
+  /* en css
  -webkit-border-radius: 0;
     -moz-border-radius: 0;
      -ms-border-radius: 0;
          border-radius: 0;
 }
+*/
 
-.box-rounded {
+  .box-rounded {
+    @include cross-browser(border-radius, 10px);
+    /*
  -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
      -ms-border-radius: 10px;
          border-radius: 10px;
-}
+         */
+  }
 
-/*
+  /*
   *Ecrire les regles suivantes en utilisant la syntaxe d'imbrication de SCSS:
 */
-nav ul {
- margin: 0;
- padding: 0;
- list-style: none;
-}
+  nav & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-nav li {
- display: inline-block;
-}
+    & li {
+      display: inline-block;
+    }
 
-nav a {
- display: block;
- padding: 6px 12px;
- text-decoration: none;
-}
+    & a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  }
 
-/*
+  /*
   *Ecrire le code CSS suivant en utilisant le mot-cle @extends de SCSS:
 */
-.success {
- border: 1px solid #ccc;
- padding: 10px;
- color: #333;
- border-color: green;
-}
 
-.error {
- border: 1px solid #ccc;
- padding: 10px;
- color: #333;
- border-color: red;
-}
+  .error {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+    border-color: red;
+  
+  &--succes {
+    @extend .error;
+    border-color: green;
+  }
 
-.warning {
- border: 1px solid #ccc;
- padding: 10px;
- color: #333;
- border-color: yellow;
+  &--error {
+    @extend .error;
+
+    border-color: red;
+  }
+
+  &--warning {
+    @extend .error;
+
+    border-color: yellow;
+  }
 }
 
 /*
@@ -94,32 +116,32 @@ nav a {
  */
 
 h1 {
- color: darkorange;
+  color: darkorange;
 }
 
 h2 {
- color: royalblue;
+  color: royalblue;
 }
 
 h3 {
- color: springgreen;
+  color: springgreen;
 }
 
 /*
  *Écrire le CSS suivant en utilisant le mot-cle @extends de SCSS et des variables représentant les valeurs de couleurs:
 */
 a.twitter {
- min-width: 100px;
- padding: 1em;
- border-radius: 1em;
- background: #55acee;
- color: #fff;
+  min-width: 100px;
+  padding: 1em;
+  border-radius: 1em;
+  background: #55acee;
+  color: #fff;
 }
 
 span.facebook {
- min-width: 100px;
- padding: 1em;
- border-radius: 1em;
- background: #3b5998;
- color: #fff;
+  min-width: 100px;
+  padding: 1em;
+  border-radius: 1em;
+  background: #3b5998;
+  color: #fff;
 }
